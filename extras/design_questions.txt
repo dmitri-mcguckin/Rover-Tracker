@@ -1,0 +1,68 @@
+=== Design and Implementation Plan Questions ===
+
+Below are a few questions about how you will design your program and your
+implementation plan. It is crucial to have a reasonable design and
+implementation plan before you start your program. Without this, success is
+unlikely. The following questions will help guide you in your thinking and
+raise some important questions and issues. There is no single "right" answer
+to each of the questions but there are some "wrong" answers. Some designs and
+plans are better than others. The point here is for you to think about what
+you're going to do.
+
+Make a copy of this file and edit it, adding your answers then turn this
+document in.
+
+----------------------------------------------------------------------
+
+1) What classes to you intend to create? List each of the classes and provide
+a brief description of the role of that class. This list is not set in
+stone. As you implement your program, if you find that you need additional
+classes that are not in this list, or that something you listed here doesn't
+really fit, that's ok. The point is to start thinking about the high-level
+structure of your program.
+
+I intend to make the following:
+    Rover Class -- Will encapsulate a single rover
+    Stack Class -- Will encapsulate Movement data of the rover
+    Queue Class -- Will encapsulate Sample Scan data of the rover
+    
+
+2) What class do you plan to implement first? Why?
+
+I plan to create the rover class first, as it is the primary capsule of data that I can easily test first. It is a simple matter of adding some "dummy" data into it, ensuring it can hold its own, with no leaks.
+If done properly, this should not be a critical point for memory leaks.
+
+3) Will you use an array or a linked list to implement the queue? Why? What
+about a stack and why?
+
+A linked list may be the most memory-efficient for both the movements (stack) and the data (queue), since data will vary and is fed in on demand.
+
+4) What type of data will be stored in the queue? What type of data will be
+stored in the stack?
+
+Since I need to remeber the exact order of the core scan contents, a queue would be most helpfull since it is first in first out oriented, it will be more usefull when trying to re-list the data chronologically.
+This implies that I will be using a stack to keep the movement data of the rover(s), since I will need to know the data of movement in reverse order and a stack is first in last out oriented, for when it moves all the way out and needs to come back the same way.
+
+5) Do you plan to have any private helper methods in your rover class?
+
+I may have separate insert and remove commands in both stack and queue objects, and/or a sepparate function that might combine two operations like this for ease.
+
+6) How will you make sure that the queue doesn't crawl off the end of the
+array?
+
+I can simply check the next node pointer to ensure it is not NULL, and if not, I can continue through the list unill it is, in which I stop on the last node instead of NULL.
+
+7) What is your testing strategy? Will you use the testqueue and teststack programs?
+
+I will first test that a rover can hold "dummy" data as to ensure that a rover object is structurally sound in it's own right.
+I will then use testqueue and test stack when individually implementing both the scan data and the movements in respective order.
+
+8) What is your strategy for finding and addressing memory leaks? Will you get
+the whole program working first and then address memory leaks or will you
+check on memory leaks as you go?
+
+The key points for checking for major leaks will likely when implementing both the stack and the queue, so I will check for leaks direcly after implementing each individual component, so that I can catch and resolve the memory leaks faster.
+
+
+
+
